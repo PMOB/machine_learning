@@ -1,0 +1,35 @@
+/*** fonts ***/
+@import url("//fonts.googleapis.com/css?family=Montserrat");
+@import url("//fonts.googleapis.com/css?family=Inconsolata");
+$base-font: 'Montserrat', sans-serif;
+$code-font: 'Inconsolata', monospace;
+
+
+/*** colors ***/
+/* 記事やらの背景 */
+$bg-color: #f8f8f8;
+$darker-bg-color: darken($bg-color, 72%);
+
+/* 文字色 */
+$base-color: #494949;
+$emph-color: mix($base-color, #f63, 36%);
+$weak-color: mix($base-color, #09f, 20%);
+$effect-color: mix($base-color, #f0f, 20%);
+
+
+/*** design ***/
+$WIDTH_RATE: 0.85;
+$FULL: 1.0/$WIDTH_RATE;
+
+// 絶対幅に対する統一
+@mixin width-limit {
+	width: percentage($WIDTH_RATE);
+	margin: 0 percentage((1.0-$WIDTH_RATE) / 2);
+}
+
+// absoluteでないwidth-limit環境で
+// フルスクリーンにする
+@mixin fullscreen {
+	width: percentage($FULL);
+	margin-left: percentage(-$FULL * ((1.0-$WIDTH_RATE) / 2));
+}

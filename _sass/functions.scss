@@ -1,0 +1,19 @@
+$PREFIXES: null, -moz-, -webkit-;
+
+@mixin prefix($property, $value){
+	@each $prefix in $PREFIXES{
+		#{$prefix}#{$property}: $value;
+	}
+}
+
+@mixin vprefix($property, $value){
+	@each $prefix in $PREFIXES{
+		#{$property}: #{$prefix}#{$value};
+	}
+}
+
+@mixin keyframes($move){
+	@keyframes #{$move} { @content; }
+	@-moz-keyframes #{$move} { @content; }
+	@-webkit-keyframes #{$move} { @content; }
+}
