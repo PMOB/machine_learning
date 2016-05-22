@@ -1,0 +1,11 @@
+baseurl:
+  /machine_learning
+
+collections:
+  hajimeteno:
+    output: true
+    permalink: /hajimeteno/:path/
+
+sass:
+  style: compressed
+  sass_dir: _sass
