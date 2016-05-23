@@ -19,6 +19,7 @@
 	</head>
 	<body>
 		<header>
+			<span class="octicon octicon-graph"></span>
 			<h1>PMOB | 機械学習勉強会</h1>
 			<ul>
 				<li><a href="#about" class="smooth"><span class="octicon octicon-organization"></span></a></li>
@@ -53,7 +54,9 @@
 					はじめてのパターン認識
 				</h1>
 				<ul>
-					<li>ここでインデックスする</li>
+					{% for index in site.hajimeteno %}
+					<li><a href="{{ site.baseurl }}{{ index.url }}">{{ index.title }}</a></li>
+					{% endfor %}
 				</ul>
 			</article>
 		</section>
