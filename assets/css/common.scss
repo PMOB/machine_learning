@@ -63,7 +63,6 @@ header{
         text-align: center;
         &:hover {
             @include prefix(animation, ohyeah 0.1s linear infinite);
-            color: $emph-color;
         }
     }
     ul{
