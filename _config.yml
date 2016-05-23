@@ -1,6 +1,9 @@
 baseurl:
   /machine_learning
 
+exclude:
+  - '*.org'
+
 collections:
   hajimeteno:
     output: true
