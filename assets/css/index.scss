@@ -1,0 +1,90 @@
+---
+---
+@import "variables";
+@import "functions";
+
+
+@media (min-width: 625px){
+#bg-box{
+    @include fullscreen;
+    height: 100%;
+    background: $darker-bg-color;
+}
+header{
+    /* layout */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+
+    /* design */
+    color: darken($bg-color, 5%);
+
+    /* children */
+    h1{
+        /* layout */
+        position: absolute;
+        top: 30%;
+        @include width-limit;
+        font-size: 2.4em;
+
+        /* design */
+        text-align: center;
+    }
+    ul{
+        /* layout */
+        position: absolute;
+        bottom: 12%;
+        padding: 0 10%;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        /* design */
+        list-style-type: none;
+    }
+    li{
+        /* children */
+        a{
+            /* layout */
+            display: block;
+            padding: 12px;
+            margin: 0;
+
+            /* design */
+            text-decoration: none;
+            text-align: center;
+            border-bottom: 5px solid $bg-color;
+
+            .octicon{
+                font-size: 3.2em;
+            }
+        }
+    }
+}
+}
+section{
+    h1{ .octicon{ font-size: 1.6em; } }
+    h2{
+        margin: 0;
+        color: lighten($base-color, 10%);
+        font-size: 0.8em;
+        font-weight: lighter;
+    }
+}
+article{
+    margin: 0;
+    h1{
+        .octicon{
+            font-size: 1.0em;
+        }
+        a{
+            text-decoration: none;
+            &:hover, &:visited, &:active {
+                text-decoration: inherit;
+            }
+        }
+    }
+}

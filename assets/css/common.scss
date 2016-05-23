@@ -1,0 +1,164 @@
+---
+---
+@import "variables";
+@import "functions";
+
+
+/*** animation ***/
+/* ブルブルする */
+@include keyframes(ohyeah){
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    25% { transform: translate(2px, -1px) rotate(0deg); }
+    50% { transform: translate(0px, 1px) rotate(0deg); }
+    75% { transform: translate(1px, 0px) rotate(-1deg); }
+    100% { transform: translate(-1px, 0px) rotate(1deg); }
+}
+
+/*** root element ***/
+*{ @include prefix(box-sizing, border-box); }
+html{ height: 100%; margin: 0; }
+
+
+/*** sections ***/
+body{
+    /* layout */
+    @include width-limit;
+    height: 100%;
+
+    /* design */
+    background-color: $bg-color;
+    font-family: $base-font;
+    color: $base-color;
+    @media (max-width: 625px){
+        font-size: 0.7em;
+    }
+}
+section{
+    /* layout */
+    margin: 8% auto;
+    padding: 1% 5%;
+    @include vprefix(padding-bottom, calc(1% + 40px));
+    font-size: 0.9em;
+
+    /* design */
+    background-color: #fff;
+    font-family: $base-font;
+    color: $base-color;
+}
+article{ @extend section; }
+
+/* h1 - h6 */
+h1{ font-size: 2.0em; }
+h2{ font-size: 1.4em; }
+h3{ font-size: 1.2em; }
+
+/* edge sections */
+header{
+    @include fullscreen;
+    background-color: $darker-bg-color;
+    color: $bg-color;
+    h1{
+        margin: 0;
+        font-size: 2.0em;
+        text-align: center;
+        &:hover {
+            @include prefix(animation, ohyeah 0.1s linear infinite);
+        }
+    }
+    ul{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        padding-bottom: 2%;
+        list-style: none;
+    }
+    li{
+        a{
+            padding: 2px 12px;
+            border-bottom: 3px solid $bg-color;
+            &:hover{
+                border-bottom: 3px solid $emph-color;
+            }
+        }
+    }
+    a{
+        text-decoration: none;
+        color: inherit;
+        &:hover, &:visited{
+            text-decoration: none;
+            color: inherit;
+        }
+        &:active{
+            color: $emph-color;
+        }
+    }
+}
+footer{
+    margin: 2% auto;
+    width: 80%;
+
+    /* children */
+    p{
+        color: $darker-bg-color;
+        text-align: center;
+    }
+}
+
+
+/*** grouping content ***/
+p{ text-indent: 1em; }
+hr{
+    background: $darker-bg-color;
+    height: 1px;
+    border: 0;
+}
+
+
+/*** text-level semantics ***/
+a{
+    color: $weak-color;
+    text-decoration: none;
+
+    /* pseudo class */
+    &:visited{
+        color: $emph-color;
+    }
+    &:hover{
+        color: $effect-color;
+        text-decoration: underline;
+    }
+}
+time{
+    float: right;
+}
+code{
+    margin: 0 2%;
+    font-family: $code-font;
+}
+
+
+/*** embedded content ***/
+img{
+    margin: 3%;
+    max-width: 90%;
+    border: 1px solid $base-color;
+}
+
+/*** tabular data ***/
+table{
+    margin: auto;
+    border-spacing: 10px 6px;
+}
+th{
+    padding: 0 8px;
+    text-align: left;
+}
+td{
+    @extend th;
+    border-bottom: 1px solid $base-color;
+}
+
+/*** specific design ***/
+a.more{ // 続きを読む
+    float: right;
+}
