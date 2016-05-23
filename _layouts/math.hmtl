@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="Learn Machine Learning">
+		<meta name="keywords" content="student,programming,math,TDU">
+		<meta name="author" content="PMOB">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>{{ page.title }} | 機械学習勉強会 | PMOB</title>
+		<link href="/favicon.ico" rel="shortcut icon">
+		<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/common.css" type="text/css">
+		<link rel="stylesheet" href="{{ site.baseurl }}/assets/octicons/octicons.css">
+		<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+	tex2jax: {
+		inlineMath: [ ['$', '$'], ["\\(", "\\)"] ],
+		processEscapes: true
+	}
+});
+		</script>
+		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<header>
+			<h1>{{ page.title }}</h1>
+		</header>
+		{{ content }}
+		{% include footer.html %}
+	</body>
+</html>
