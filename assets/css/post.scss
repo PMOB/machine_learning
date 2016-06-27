@@ -1,0 +1,28 @@
+---
+---
+@import "variables";
+@import "functions";
+
+article{
+    h1{
+        font-size: 1.4em;
+        a{ margin-right: 0.5em; }
+    }
+    h2{ font-size: 1.2em; }
+    h3{ font-size: 1.0em; }
+    p{ text-indent: 1em; }
+
+    figure{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+
+        img{
+            display: block;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        figcaption{ text-align: center; }
+    }
+}

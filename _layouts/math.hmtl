@@ -9,7 +9,8 @@
 
 		<title>{{ page.title }} | 機械学習勉強会 | PMOB</title>
 		<link href="/favicon.ico" rel="shortcut icon">
-		<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/common.css" type="text/css">
+		<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/common.css">
+		<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/post.css">
 		<link rel="stylesheet" href="{{ site.baseurl }}/assets/octicons/octicons.css">
 		<script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -25,7 +26,9 @@ MathJax.Hub.Config({
 		<header>
 			<h1>{{ page.title }}</h1>
 		</header>
+		<article>
 		{{ content }}
+		</article>
 		{% include footer.html %}
 	</body>
 </html>
