@@ -7,7 +7,6 @@ from bs4 import BeautifulSoup as bs
 from naivebayes import NaiveBayes
 
 
-
 extractor = re.compile('\w+')
 def get_words(doc):
     words = extractor.findall(doc)
@@ -21,14 +20,13 @@ def readdoc(soup):
 
 
 def fetch(url, fname):
-    f = open(fname, 'w')
-    src = urllib.request.urlopen(url)
-    soup = bs(src.read(), "html.parser")
-    f.writelines(readdoc(soup))
-    f.close()
+    with open(fname, 'w') as f:
+        src = urllib.request.urlopen(url)
+        soup = bs(src.read(), "html.parser")
+        f.writelines(readdoc(soup))
 
 
-def fetch_python():
+def fetch_all():
     fetch("http://animals.mom.me/countries-pythons-live-2498.html", "snakes1")
     fetch("http://www.kidzone.ws/lw/snakes/facts-python.htm", "snakes2")
     fetch("https://docs.python.org/3/tutorial/index.html",
@@ -37,7 +35,7 @@ def fetch_python():
             "ProgrammingLanguage2")
 
 
-def train_python(classifier):
+def train(classifier):
     dataset = [
             ("ProgrammingLanguage1", "Programming Language"),
             ("ProgrammingLanguage2", "Programming Language"),
@@ -53,13 +51,9 @@ def train_python(classifier):
 
 
 if __name__ == '__main__':
-    # fetch_python()
-    print('===============')
-    print('  Naive Bayes  ')
-    print('---------------')
+    # fetch_all()
     classifier = NaiveBayes(get_words)
-    learned = train_python(classifier)
+    learned = train(classifier)
     line = input('> ')
     cat = learned.classify(line)
     print('You ment %s.' % cat)
-    print('===============\n')
